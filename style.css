@@ -28,6 +28,11 @@ main {
 header {
     text-align: center;
     margin: auto 2rem;
+    position: relative;
+}
+
+.header-content {
+    text-align: center;
 }
 
 section {
@@ -55,4 +60,13 @@ i {
 
 #mainLeft {
     border-right: 1px solid lightgray;
+}
+
+#portfolioLink {
+    position: absolute;    /* 절대 위치 대신 상대 위치로 변경 */
+    top: 20%;              /* 상위 요소 대비 상단에서 50% 위치 */
+    right: 0;              /* 오른쪽 정렬 */
+    transform: translateY(-100%); /* Y축 기준으로 -50% 이동하여 중앙 정렬 */
+    font-size: 1rem;       /* 아이콘 크기 조정 */
+    color: #000;           /* 아이콘 색상 */
 }
