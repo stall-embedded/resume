@@ -77,8 +77,17 @@ Lifecare Lab                     | 2021-01    | 2024-02
 - Github : https://github.com/stall-embedded/Research
 - Thesis : https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=806b135319a6d20fffe0bdc3ef48d419&keyword=%EA%B9%80%EA%B7%9C%ED%98%95%20%EC%A1%B0%EC%9C%84%EB%8D%95
 
+이 연구는 Convolutional Neural Networks (CNN)와 Spiking Neural Networks (SNN)의 적대적 공격에 대한 성능을 비교함으로써 CNN을 SNN이 대체할 수 있는지에 대하여 연구한 내용입니다.
+연구의 첫 내용은 CNN과 SNN의 CIFAR10 데이터 셋에 대한 분류 성능을 비교합니다. 테스트한 CNN 모델은 88%의 정확도를 가지고 있습니다. 같은 형식의 모델을 가진 SNN은 82%의 정확도를 보였습니다. 이는 SNN에 대해 연구가 초기 진행상태이기 때문이며, 추후 더 정확한 학습 방법이 발견된다면, 이에 대한 정확도를 향상시킬 수 있을 것으로 생각됩니다. 그렇다면 CNN을 SNN으로 대체하는 것이 가능합니다.
 
+두 번째 주요 내용은 Fast Gradient Sign Method (FGSM), Projected Gradient Descent (PGD), Carlini & Wagner (C&W), DeepFool의 적대적 공격 시나리오를 이용하여 CNN과 SNN의 강건성을 비교하였습니다. 전체적으로 SNN이 CNN에 비해 강인한 결과가 나왔습니다. 그중 특별히 반복적인 공격에 대해 CNN에 비해 SNN이 강건함을 보였습니다. 이는 SNN이 미세한 변화에 민감하게 반응하고 복잡한 공격에 대해 내성을 가질 수 있음을 보여줍니다. 하지만, DeepFool공격의 낮은 반복 횟수에 대해서는 CNN이 더 강건함을 보였으므로 이는 추후 연구대상으로 삼았습니다.
 
+세 번째 주요 내용은 Gradient-weighted class Activation Mapping (Grad-CAM)과 Spiking Activation Mapping (SAM)을 통한 분석입니다. 단순히 적대적 공격을 받은 이미지을 가지고 모델의 분류 정확도를 비교하는 것은 강건성에 대한 심도있는 이해를 제공하지 않습니다. 따라서 eXplainable Artificial Intelligence (XAI)기법인 Grad-CAM과 SAM을 사용하여 각각 CNN, SNN이 모델을 분류할 때 어느곳을 중점적으로 보는지에 대하여 확인하였습니다. 결론적으로 모델의 시각적 분석은 SNN이 CNN에 비해 확실히 우세함을 보였습니다. 이 말은, 강한 강도의 변형에도 SNN은 이미지를 분류하는데 있어서 중요한 부분을 캐치해내는 능력이 뛰어남을 입증합니다. 따라서 강건성 측면에 있어서 CNN에 비하여 SNN이 가지는 메리트가 큰 것을 확인하였습니다.
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/b3d110ca-41e3-4410-bd23-ff1edef9b53b)
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/f05a8fd8-5eec-40be-89b7-af4de66e9a0a)
+
+왼쪽 이미지는 FGSM공격에 대한 CNN 모델의 반응을 Grad-CAM을 통하여 분석한 결과이고, 오른쪽 이미지는 FGSM공격에 대한 SNN 모델의 반응을 SAM을 통하여 분석한 결과입니다. CNN, SNN 둘 다 변형되기 전 original 이미지에 대하여 판별하는 부분이 고양이의 얼굴 부분임을 확인할 수 있습니다. FGSM공격의 계수가 커질수록 CNN은 고양이의 얼굴을 중점적으로 보는것이 아니라 다른 부분을 보는 것을 확인할 수 있고 SNN의 경우는 계속 고양이의 얼굴을 중점적으로 보는 것을 확인할 수 있습니다.
 
 ### 3.2. Predict stock data with LSTM and remove ragging
 
