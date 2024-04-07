@@ -103,6 +103,10 @@ Lifecare Lab                     | 2021-01    | 2024-02
 ### 3.3. EEG signal classification based on emotion analyzed by XAI
 - Github : https://github.com/stall-embedded/recog-EEG
 
+https://www.kaggle.com/datasets/birdy654/eeg-brainwave-dataset-feeling-emotions
+
+위 데이터 셋을 사용하여 EEG 분류 모델을 만들고 XAI를 이용하여 분류 기준을 파악하였습니다. 
+
 
 ### 3.4. MNIST discrimination AI optimization
 
