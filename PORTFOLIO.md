@@ -69,9 +69,16 @@ Lifecare Lab                     | 2021-01    | 2024-02
 
 처음 시작은 단순히 그 세상을 만들고 즐기고 싶었지만, 머리가 커지며 완전 몰입형 가상현실이 가져올 수 있는 다른 변화들에 대해서도 생각하게 되었습니다. 먼저, 완전 몰입형 가상현실이라는 것은 뇌파를 통해서 가상속의 아바타를 조종할 수 있어야 합니다. 따라서 이는 뇌파를 통해서 의수, 의족 등을 제어할 수 있다는 뜻입니다. 이는 현재 BCI분야에서 연구되고 있습니다. 하지만 안타깝게 한국에서는 해당 분야를 연구하는 기업들은 없습니다. 하지만, 그와 비슷하게 데이터를 활용하는 기업들은 많습니다. 기업에 들어가 실무에서 더욱 더 다양한 데이터들을 다루고 그것들을 분석하며 꿈에 한 발자국 더 다가가고 싶습니다.
 
+### 2.3. Recognition of Problem
+
 
 ## 3. Educational Projects
 ### 3.1. Comparative study on the robustness of CNN and SNN against adversarial attacks of image data modification
+Github : https://github.com/stall-embedded/Research
+Thesis : https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=806b135319a6d20fffe0bdc3ef48d419&keyword=%EA%B9%80%EA%B7%9C%ED%98%95%20%EC%A1%B0%EC%9C%84%EB%8D%95
+
+
+
 
 ### 3.2. Predict stock data with LSTM and remove ragging
 
