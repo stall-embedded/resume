@@ -74,8 +74,8 @@ Lifecare Lab                     | 2021-01    | 2024-02
 
 ## 3. Educational Projects
 ### 3.1. Comparative study on the robustness of CNN and SNN against adversarial attacks of image data modification
-Github : https://github.com/stall-embedded/Research
-Thesis : https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=806b135319a6d20fffe0bdc3ef48d419&keyword=%EA%B9%80%EA%B7%9C%ED%98%95%20%EC%A1%B0%EC%9C%84%EB%8D%95
+- Github : https://github.com/stall-embedded/Research
+- Thesis : https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=806b135319a6d20fffe0bdc3ef48d419&keyword=%EA%B9%80%EA%B7%9C%ED%98%95%20%EC%A1%B0%EC%9C%84%EB%8D%95
 
 
 
