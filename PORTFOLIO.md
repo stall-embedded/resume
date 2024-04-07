@@ -89,15 +89,17 @@ Lifecare Lab                     | 2021-01    | 2024-02
 
 왼쪽 이미지는 FGSM공격에 대한 CNN 모델의 반응을 Grad-CAM을 통하여 분석한 결과이고, 오른쪽 이미지는 FGSM공격에 대한 SNN 모델의 반응을 SAM을 통하여 분석한 결과입니다. CNN, SNN 둘 다 변형되기 전 original 이미지에 대하여 판별하는 부분이 고양이의 얼굴 부분임을 확인할 수 있습니다. FGSM공격의 계수가 커질수록 CNN은 고양이의 얼굴을 중점적으로 보는것이 아니라 다른 부분을 보는 것을 확인할 수 있고 SNN의 경우는 계속 고양이의 얼굴을 중점적으로 보는 것을 확인할 수 있습니다.
 
-### 3.2. Predict stock data with LSTM and remove ragging
+### 3.2. Gradient boosting Classifier와 Feature importance를 이용한 EEG신호처리에 따른 Hyponogram 예측 모델에 관한 연구
+- Paper : https://manuscriptlink-society-file.s3-ap-northeast-1.amazonaws.com/kics/conference/koreaai2021/presentation/D-4-2.pdf
 
-### 3.3. Gradient boosting Classifier와 Feature importance를 이용한 EEG신호처리에 따른 Hyponogram 예측 모델에 관한 연구
 
-### 3.4. EEG signal classification based on emotion analyzed by XAI
+### 3.3. EEG signal classification based on emotion analyzed by XAI
+- Github : https://github.com/stall-embedded/recog-EEG
 
-### 3.5. MNIST discrimination AI optimization
 
-### 3.6. Smart SEGWAY
+### 3.4. MNIST discrimination AI optimization
+
+### 3.5. Smart SEGWAY
 
 
 ## 4. Commercial Projects
