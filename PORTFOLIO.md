@@ -93,9 +93,11 @@ Lifecare Lab                     | 2021-01    | 2024-02
 - Paper : https://manuscriptlink-society-file.s3-ap-northeast-1.amazonaws.com/kics/conference/koreaai2021/presentation/D-4-2.pdf
 
 ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/0988efa8-8e9f-4ae0-9295-534fad6f8447)
+
 이 연구는 뇌파(EEG) 데이터를 사용하여 수면의 깊이를 예측하는 모델을 개발한 내용입니다. 2-channel의 EEG 데이터를 분석하여, 수면 상태를 나타내는 Hyponogram의 다양한 단계(위 사진; Wake, 렘수면 상태, 비렘수면 상태 등)를 예측하였습니다. 이 연구에서는 Gradient Boosting Classifier 알고리즘을 이용하여, 뇌파의 주파수 대역에 따라 분류한 여러 feature들을 기반으로 머신러닝을 수행하였으며, 각 feature의 중요도를 분석하였습니다. 
 
-![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/8f80d30e-8355-4d13-8507-1ced4d0f7f7d)
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/d46c79e6-3336-4574-9a28-90e4a868d91a)
+
 신호처리 방법(예: FFT, Welch PSD)에 따른 예측 모델의 성능 비교를 통해, 특정 신호처리 방법이 수면 상태 예측에 더 유효함을 보여주었습니다. 특히, FFT와 Welch PSD의 창함수를 변경한 feature을 가지고 뇌파 분석에 대한 각각의 feature importance를 분석하여, 뇌파별 수면 상태 예측에 중요한 요소들을 식별하였습니다.
 
 ### 3.3. EEG signal classification based on emotion analyzed by XAI
