@@ -186,6 +186,7 @@ Negative와 Neutral이 mean_0_b에 의해서 구분이 가능하다고 보여집
 ### 4.1. Improved OCR for MSDS analysis
 기업과 협력하여 진행한 프로젝트이기에 소스코드를 오픈할 수 없습니다.
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11487389
+- Product : https://scist.co.kr/shop.php?goPage=GoodDetail&g_code=20230906100743610&cat_no=103&offset=
 
 Material Safety Data Sheet(MSDS)에서 문자들을 OCR을 통해 인식하는 프로젝트를 진행하였습니다. 화학물질/제품에서 가장 중요한 CAS, 영문물질명, 물질함량, 예방코드, 위험코드등을 DB에 저장하기 위해서 인식 후, MQTT를 통하여 전송하는 프로그램을 작성했습니다. 
 
