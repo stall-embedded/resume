@@ -212,5 +212,6 @@ CAS, 예방, 위험 코드같은 경우는 글자가 이어져서 인식되지 �
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11487386
 
 ### 4.3. Smart Mask
+- Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11132595
 
 ### 4.4. 급발진 사고 데이터 분석-그것이 알고싶다(SBS)
