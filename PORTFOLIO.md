@@ -184,8 +184,32 @@ Negative와 Neutral이 mean_0_b에 의해서 구분이 가능하다고 보여집
 
 ## 4. Commercial Projects
 ### 4.1. Improved OCR for MSDS analysis
+기업과 협력하여 진행한 프로젝트이기에 소스코드를 오픈할 수 없습니다.
+- Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11487389
+
+Material Safety Data Sheet(MSDS)에서 문자들을 OCR을 통해 인식하는 프로젝트를 진행하였습니다. 화학물질/제품에서 가장 중요한 CAS, 영문물질명, 물질함량, 예방코드, 위험코드등을 DB에 저장하기 위해서 인식 후, MQTT를 통하여 전송하는 프로그램을 작성했습니다. 
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/8cf39385-a9cb-4321-92f1-338527b68dbc)
+
+위의 이미지는 MSDS를 OCR로 인식한것입니다. 아래 이미지는 해당 인식 결과를 DB에 저장하기 쉽게 json형태로 바꾼 것입니다.
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/a56b6573-0826-4834-b2af-eaab7a0ab4af)
+
+이미지 OCR 인식중 원하는대로 인식이 되지 않는 경우들이 발생하게 됩니다. 이런 경우를 모두 다 예외처리를 할 수 없기 때문에, 예외처리가 곤란한 경우에는 일반적으로 처리할 수 있게 데이터에 전처리를 하게 됩니다. 아래는 그 예시입니다. 아래 이미지는 인식 순서에 오류가 생기는 경우가 발생한 것입니다. “product name”이라는 단어를 인식 후, “Celite”라는 제품명을 인식해야 하는데, 위의 경우는 제품명 먼저 인식하는 문제가 발생하였습니다.
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/da7f68a6-e708-4ac1-b7b4-db62ba27354f)
+
+이를 해결하기 위하여 다음과 같은 알고리즘을 설계하여 해결하였습니다.
+-	OCR의 우선순위는 위쪽, 왼쪽이 아랫쪽, 오른쪽보다 높습니다. 따라서 회전변환을 사용하여 시계방향으로 회전시킨다면, 무조건 왼쪽에 있는 텍스트가 먼저 인식이 됩니다. 하지만 너무 기울일 경우 인식 자체에 문제가 발생할 수 있기 때문에, 적당한 회전각도를 찾아야 합니다. 0~3도 사이를 0.1~0.2도씩 쪼개어 비교를 해보았을 때, 1도가 가장 적절하게 인식하는 구간인 것을 찾을 수 있었습니다.
+  
+-	추가로 인식률 향상을 위해 엣지의 선명도를 높이는 방법으로 기존 컬러 이미지를 흑백 이미지로 바꾸어서 OCR프로그램을 작동시켰습니다. 아래 이미지는 회전변환, 흑백변경이 적용된 이미지입니다.
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/64de95a0-04f4-4bc5-ba25-6977d92419d3)
+
+CAS, 예방, 위험 코드같은 경우는 글자가 이어져서 인식되지 않고, + 혹은 - 를 기준으로 잘려서 인식하는 경우가 발생합니다. 따라서 이를 해결하기 위하여 데이터 인식 후 후처리를 진행하였습니다.
 
 ### 4.2. Golf swing analysis
+- Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11487386
 
 ### 4.3. Smart Mask
 
