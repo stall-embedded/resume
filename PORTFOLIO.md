@@ -103,12 +103,81 @@ Lifecare Lab                     | 2021-01    | 2024-02
 ### 3.3. EEG signal classification based on emotion analyzed by XAI
 - Github : https://github.com/stall-embedded/recog-EEG
 
-https://www.kaggle.com/datasets/birdy654/eeg-brainwave-dataset-feeling-emotions
+- Dataset : https://www.kaggle.com/datasets/birdy654/eeg-brainwave-dataset-feeling-emotions
 
-위 데이터 셋을 사용하여 EEG 분류 모델을 만들고 XAI를 이용하여 분류 기준을 파악하였습니다. 
+위 데이터 셋을 사용하여 EEG 분류 모델을 만들고 XAI를 이용하여 분류 기준을 파악하였습니다. 데이터 셋은 영화의 내용이 positive, neutral, negative일 때, 그 영화를 시청하는 실험자의 뇌파를 뽑고 여러가지 신호처리를 한 결과입니다. 신호처리를 한 결과들이 feature가 되고 이를 사용해서 positive, neutral, nagetive 세개의 클래스로 구분하는 단순한 분류모델을 만들었습니다.
 
+
+SVM HyperParameter  | value
+--------------------|------------
+Max iteration       | 5000
+C                   | 0.005
+penalty             | L1
+dual                | False
+
+(C : 정규화 파라미터)
+
+
+Random Forest HyperParameter  | value
+------------------------------|---------
+Max depth                     | 5
+Min samples leaf              | 10
+
+(Min samples leaf : 하나의 리프 노드에 필요한 최소 샘플 수)
+
+
+XGBoost HyperParameter         | value
+-------------------------------|-------
+Max depth                      | 3
+Learning rate                  | 0.1
+N estimators                   | 20
+subsample                      | 0.4
+L1 regularization coefficient  | 0.1
+L2 regularization coefficient  | 10.0
+
+(N estimators : 앙상블에 사용되는 트리 수
+subsample : 각 트리별 학습할 데이터의 비율)
+
+- 정확도 : ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/1d40bd3f-b4f9-4c6d-9f0e-44ae67e8a4c3)
+
+분류 모델은 SVM, Random Forest, XGBoost 세 가지에 대하여 실험하였습니다. SVM, XGBoost 모두 규제를 사용하였고 세 모델 모두 hyperparameter를 수정하며 가장 높은 정확도를 달성한 수치를 사용하였습니다. XAI를 사용하여 분석한 결과는 아래와 같습니다. Individual conditional expectation(ICE), Local Interpretable Model-agnostic Explanation(LIME)를 분석하여 클래스 분류시 중요한 클래스들이 어떻게 되는지 확인하였습니다. 
+
+#### ICE
+- SVM
+  
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/a640fc2c-0585-458c-b277-fbf3e3cebcc7)
+Feature들의 값이 증가할 때 Negative이며, 감소할 때 Neutral과 Positive인 것을 확인할 수 있고 Positive는 Neutral에 비해 판단이 어려운 것을 확인 가능합니다.
+
+- RandomForest
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/f0fd161f-af12-4d17-85b9-d800bed1031d)
+Feature들의 값이 증가하면 Negative일 확률이 줄어들고, Neutral일 확률이 증가, Positive일 확률이 증가합니다. 여전히 Positive는 Neutral에 비해 판단이 어려운 것을 확인 가능합니다. 하지만 feature의 값이 증가함에 따라서 Positive일 확률이 증가한다는 것은 증가하는 feature의 개수가 더 많기에 확인 가능합니다.
+
+- XGBoost
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/aef46326-d8a4-471d-a8ed-d49dbb1b3c66)
+Feature들의 값이 증가하면 Negative일 확률이 줄어들고, Neutral일 확률이 증가, Positive일 확률이 감소합니다.
+
+#### LIME
+- SVM
+  
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/959ba829-dcb8-48b6-86e8-72532b095505)
+Negative와 Neutral이 mean_0_b에 의해서 구분이 가능하다고 보여집니다. Positive또한 mean_0_b의 영향을 받습니다. (mean_0_b는 b번째 실험자의 0번째 실험 평균값입니다.)
+
+- RandomForest
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/7c7f1406-932f-4219-b06a-e4debb6684ac)
+뚜렷하게 관여하는 feature는 없고 여러 feature들이 동시에 판단을 돕습니다. 여기서 특이하게 Positive는 SVM과 동일한 Feature가 가장 크게 관여한다는 것을 알 수 있습니다.
+
+- XGBoost
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/1800f16a-677b-4e23-b9c6-a108110747bd)
+가장 중요하게 봐야 할 것이 mean_0_b입니다. SVM에서 중요한 feature가 여전히 관여하는 것을 볼 수 있습니다. Negative를 보시면 mean_2_b, mean_0_a등 EEG의 평균이라는 것이 감정에 크게 관여한다는 것을 볼 수 있습니다.
+
+결록적으로 ICE를 통해 분석했을 때 SVM보다 두 앙상블 모델의 정확도가 높은 이유가 feature의 경향성이 뚜렷하기 때문임을 확인하였습니다. Mean 값이 감정 분류에 큰 영향을 미친다는 것을 확인하였습니다. 평균을 취하게 되면 Moving Average Filter처럼 작용하게 되어 노이즈가 어느정도 제거되기에 큰 영향이 있는 것으로 보입니다.
 
 ### 3.4. MNIST discrimination AI optimization
+
 
 ### 3.5. Smart SEGWAY
 
