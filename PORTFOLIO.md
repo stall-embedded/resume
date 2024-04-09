@@ -224,7 +224,7 @@ x8       |5.487
 Neon의 적용을 위해 makefile에 -mfpu=neon을 추가하였습니다. 또한 main코드에 Neon함수 사용을 위해 arm_neon.h 라이브러리를 추가하였습니다.
 계산 방식을 Neon을 사용하는 방식으로 바꾸었습니다.
 
-![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/90b0eadd-b48c-4559-9d5c-fbc7df9c6e4c)
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/ce2a1721-03ff-4287-b30a-d4ac38311a91)
 
 Execution time이 4.339s으로 감소하였습니다.
 
