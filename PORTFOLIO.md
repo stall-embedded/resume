@@ -179,6 +179,62 @@ Negative와 Neutral이 mean_0_b에 의해서 구분이 가능하다고 보여집
 ### 3.4. MNIST discrimination AI optimization
 Github : https://github.com/stall-embedded/Handwritten-Digit-Recognition-Code-Optimization-
 
+한백전자의 SM10 임베디드 시스템 보드위에 미리 학습된 MNIST분류 CNN을 가지고 실행 시간을 단축시키는 프로젝트를 진행하였습니다. AndroX Studio와 Eclipse를 사용하여 프로그래밍을 하였습니다. 사용된 최적화 기법으로는 GCC Optimazation Options, Vector Floating Point(VFP), Loop Unrolling, Neon(ARM에서 개발한 64/128bit 복합 SIMD아키텍처)을 사용하였습니다.
+
+#### GCC Optimazation Options
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/bf78e06c-6e40-4a2b-91cd-f118f9e00ce2)
+
+붉은 색 네모칸을 O1, Os, O2, O3로 변경하며 실행시간을 측정하였습니다.
+
+Option | AverageExecution time(sec)
+-------|---------------
+O1     |40.385
+Os     |40.063
+O2     |39.385
+O3     |39.408
+
+가장 Execution time이 낮은 O2 최적화를 사용하였습니다.
+
+
+#### VFP
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/d648f46c-86f0-4f9d-a233-bcba9ae47c26)
+
+CNN에서 이미지를 처리 할 때, 부동소수점 연산이 굉장히 오래 걸리기 때문에 ARM에서 제공하는 VFP를 사용하여 부동소수점 연산을 빠르게 실행하였습니다. 
+Execution time : 5.500s으로 단순히 O2를 사용하여 최적화한 결과보다 86%가량 최적화가 되는 것을 확인할 수 있었습니다.
+
+#### Loop Unrolling
+for문에 Loop Unrolling의 배율을 조정하며 실험했을 때, 4배율이 가장 최적임을 확인하였습니다. 따라서 SM10은 병렬처리 시, 4배율의 Loop Unrolling의 효율이 가장 좋은 것을 확인하였습니다.
+
+Magnification | AverageExecution time(sec)
+---------|---------------
+x2       |5.252
+x4       |5.071
+x8       |5.487
+
+또한 for문의 iterator를 0과 비교하게 바꾸어 성능 향상이 일어난 것을 확인하였습니다.
+위와 같은 작업을 수행한 후 Execution time이 4.750s로 줄어들었습니다.
+
+#### Neon
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/7f9135fa-9650-413a-9829-78c1a4c261e1)
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/fe70470d-fc88-4cb8-8ee7-cbb4b7f8c410)
+
+Neon의 적용을 위해 makefile에 -mfpu=neon을 추가하였습니다. 또한 main코드에 Neon함수 사용을 위해 arm_neon.h 라이브러리를 추가하였습니다.
+계산 방식을 Neon을 사용하는 방식으로 바꾸었습니다.
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/90b0eadd-b48c-4559-9d5c-fbc7df9c6e4c)
+
+Execution time이 4.339s으로 감소하였습니다.
+
+
+- 결론
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/a375048a-4b8c-4947-9142-f6d3df1990ee)
+
+최적화를 시행한 결과 57.044sec -> 4.339sec으로 최적화를 수행하였습니다. 결과적으로 평균 92.4%의 최적화가 수행되었습니다.
+
 ### 3.5. Smart SEGWAY
 
 
