@@ -268,6 +268,8 @@ CAS, 예방, 위험 코드같은 경우는 글자가 이어져서 인식되지 �
 ### 4.2. Golf swing analysis
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11487386
 
+Acceleration, Gyro, Magnitude 데이터를 가지고 
+
 ### 4.3. Smart Mask
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11132595
 
