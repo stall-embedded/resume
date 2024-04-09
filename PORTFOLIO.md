@@ -177,7 +177,7 @@ Negative와 Neutral이 mean_0_b에 의해서 구분이 가능하다고 보여집
 결록적으로 ICE를 통해 분석했을 때 SVM보다 두 앙상블 모델의 정확도가 높은 이유가 feature의 경향성이 뚜렷하기 때문임을 확인하였습니다. Mean 값이 감정 분류에 큰 영향을 미친다는 것을 확인하였습니다. 평균을 취하게 되면 Moving Average Filter처럼 작용하게 되어 노이즈가 어느정도 제거되기에 큰 영향이 있는 것으로 보입니다.
 
 ### 3.4. MNIST discrimination AI optimization
-
+Github : https://github.com/stall-embedded/Handwritten-Digit-Recognition-Code-Optimization-
 
 ### 3.5. Smart SEGWAY
 
