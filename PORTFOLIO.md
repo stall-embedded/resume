@@ -232,6 +232,17 @@ Execution time이 4.339s으로 감소하였습니다.
 
 최적화를 시행한 결과 57.044sec -> 4.339sec으로 최적화를 수행하였습니다. 결과적으로 평균 92.4%의 최적화가 수행되었습니다.
 
+### 3.5. Make Overwatch VR controller
+- Youtube : https://www.youtube.com/watch?v=LrcyZ_7xOWY&t=126s
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/04828f10-3a18-4cc1-8b2a-1752ae997e59)
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/33b57e84-a08f-475e-b676-7fb4e70ae73e)
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/a03aa092-da09-4ab2-a23b-a23e8d7e131f)
+
+
+고등학교 시절 Overwatch라는 게임을 VR로 해보고 싶어서 방과후 과목으로 수강하였던 아두이노와 센서들을 가지고 VR로 플레이할 수 있게 컨트롤러를 구현하였습니다. 통신방법은 zigbee, serial을 사용하였고 이를 통하여 2개의 아두이노, 센서들이 서로 상호작용하게 제작하였습니다.
 
 ## 4. Commercial Projects
 ### 4.1. Improved OCR for MSDS analysis
