@@ -69,8 +69,6 @@ Lifecare Lab                     | 2021-01    | 2024-02
 
 처음 시작은 단순히 그 세상을 만들고 즐기고 싶었지만, 머리가 커지며 완전 몰입형 가상현실이 가져올 수 있는 다른 변화들에 대해서도 생각하게 되었습니다. 먼저, 완전 몰입형 가상현실이라는 것은 뇌파를 통해서 가상속의 아바타를 조종할 수 있어야 합니다. 따라서 이는 뇌파를 통해서 의수, 의족 등을 제어할 수 있다는 뜻입니다. 이는 현재 BCI분야에서 연구되고 있습니다. 하지만 안타깝게 한국에서는 해당 분야를 연구하는 기업들은 없습니다. 하지만, 그와 비슷하게 데이터를 활용하는 기업들은 많습니다. 기업에 들어가 실무에서 더욱 더 다양한 데이터들을 다루고 그것들을 분석하며 꿈에 한 발자국 더 다가가고 싶습니다.
 
-### 2.3. Recognition of Problem
-
 
 ## 3. Educational Projects
 ### 3.1. Comparative study on the robustness of CNN and SNN against adversarial attacks of image data modification
@@ -196,7 +194,6 @@ O3     |39.408
 
 가장 Execution time이 낮은 O2 최적화를 사용하였습니다.
 
-
 #### VFP
 
 ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/d648f46c-86f0-4f9d-a233-bcba9ae47c26)
@@ -234,8 +231,6 @@ Execution time이 4.339s으로 감소하였습니다.
 ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/a375048a-4b8c-4947-9142-f6d3df1990ee)
 
 최적화를 시행한 결과 57.044sec -> 4.339sec으로 최적화를 수행하였습니다. 결과적으로 평균 92.4%의 최적화가 수행되었습니다.
-
-### 3.5. Smart SEGWAY
 
 
 ## 4. Commercial Projects
@@ -278,15 +273,17 @@ CAS, 예방, 위험 코드같은 경우는 글자가 이어져서 인식되지 �
 
 ### 4.3. Smart Mask
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11132595
-
-스마트 마스크에 부착된 소리 센서로부터 데이터를 받아온 후
+- Product : https://gthelema.com/
 
 ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/d6eeab6c-c220-4498-a5ac-0a9e64ab77a1)
 
-코골이와 호흡을 구분하는 것을 
+스마트 마스크에 부착된 소리 센서로부터 데이터를 받아온 후 개발시 로그 분석은 UART를 사용하여, 실제 사용시에는 BLE를 통하여 호흡, 코골이, 무호흡을 구분하여 사용자에게 피드백을 주고, 가속도 센서를 통하여 수면중 뒤척임을 감지하여 수면의 질을 분석하는 프로젝트입니다.
+
 ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/c62ac309-87d2-4b1d-b61b-3789485191ad)
+호흡과 코골이의 크기가 같기 때문에 DSP기술을 이용하여 데이터를 수정한 뒤, 호흡과 코골이를 구분하는 프로그램을 작성하였습니다.
+
 ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/f40a2217-971d-44b4-8976-794edd154622)
+시나리오 상 호흡, 코골이, 무호흡이 혼재 되어있고 그 크기들이 다 다를때, 적응형으로 Threshold를 조정하며 호흡, 코골이, 무호흡을 성공적으로 구분할 수 있게 여러 시행착오를 겪으며 프로젝트를 진행하였습니다.
+
 ![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/5d4b3d8d-de7e-43bc-88f2-9adfc3b88337)
-
-
-### 4.4. 급발진 사고 데이터 분석-그것이 알고싶다(SBS)
+또한, 가속도 센서의 움직임을 분석하여 사용자의 뒤척임을 감지할 수 있게 제작하였습니다.
