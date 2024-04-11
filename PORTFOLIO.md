@@ -268,9 +268,16 @@ CAS, 예방, 위험 코드같은 경우는 글자가 이어져서 인식되지 �
 ### 4.2. Golf swing analysis
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11487386
 
-Acceleration, Gyro, Magnitude 데이터를 가지고 
+갤럭시 워치 4를 기반으로 Acceleration, Gyro, Magnitude 데이터를 가지고 골프 스윙시 그 궤적을 추출하고, 그 궤적위에 골프스윙시 중요한 포인트들을 표시하는 프로그램입니다. 단순히 Acceleration 데이터를 적분 시키면, 적분 오차가 발생하기 때문에 Gyro, Magnitude 데이터를 포함하여 그 값을 보정해야 했습니다. 해당 값들을 가지고 Altitude and Heading Reference System(AHRS)라는 항공기 자세측정 기술을 사용하여 궤적을 추출해냈습니다.
+
+궤적, Accelration, Velocity 데이터를 가지고 골프스윙시, 해당 스윙이 얼마나 좋은 스윙인지 판단하기 위하여 포인트 및 여러 데이터들을 추출해냈습니다. 먼저 스윙 시작 지점, 백스윙 최고점, 골프채와 공이 닿는 타격점, 공을 친 후 계속 자세를 유지하는 지점 이렇게 총 4개의 지점을 구했고, 해당 지점 사이 평균속력, 백스윙과 다운스윙 궤적의 차이 정도 등을 계산하여 스윙 평가에 필요한 데이터들을 얻어내는 프로젝트를 수행하였습니다.
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/4b98157f-682f-4991-ad91-4682cf78d7bc)
+
+원하는대로 얻고자 하는 궤적 및 파라미터들을 얻을 수 있었습니다.
 
 ### 4.3. Smart Mask
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11132595
+
 
 ### 4.4. 급발진 사고 데이터 분석-그것이 알고싶다(SBS)
