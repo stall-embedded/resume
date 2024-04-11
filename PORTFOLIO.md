@@ -279,5 +279,10 @@ CAS, 예방, 위험 코드같은 경우는 글자가 이어져서 인식되지 �
 ### 4.3. Smart Mask
 - Paper : https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11132595
 
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/d6eeab6c-c220-4498-a5ac-0a9e64ab77a1)
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/c62ac309-87d2-4b1d-b61b-3789485191ad)
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/f40a2217-971d-44b4-8976-794edd154622)
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/5d4b3d8d-de7e-43bc-88f2-9adfc3b88337)
+
 
 ### 4.4. 급발진 사고 데이터 분석-그것이 알고싶다(SBS)
