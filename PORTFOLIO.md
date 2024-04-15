@@ -246,6 +246,33 @@ Execution time이 4.339s으로 감소하였습니다.
 
 고등학교 시절 Overwatch라는 게임을 VR로 해보고 싶어서 방과후 과목으로 수강하였던 아두이노와 센서들을 가지고 VR로 플레이할 수 있게 컨트롤러를 구현하였습니다. 통신방법은 zigbee, serial을 사용하였고 이를 통하여 2개의 아두이노, 센서들이 서로 상호작용하게 제작하였습니다.
 
+### 3.6. Make Dapp about Poker by Unity
+- Github : https://github.com/stall-embedded/poker_unity
+
+블록체인 수업 중, 블록체인 서버와 통신하는 Dapp을 제작하였습니다. 총 2인 프로젝트로 제 담당은 Dapp, 나머지 팀원의 담당은 블록체인 서버 구현이였습니다. 사용자의 모든 정보는 블록체인 서버에 저장되고 따로 Dapp 서버가 존재하여 Dapp에서 HyperLeger 블록체인 서버에 저장되어 있는 정보를 가져오고 동시에 보낼 수 있는 Dapp을 개발하였습니다.
+
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/aeff61b9-f0bb-4695-923d-cfecfe34691c)
+
+개발한 Dapp은 2인용 포커게임으로써, Unity, RPC를 통해 동기화를 구현한 온라인 게임입니다. 해당 게임은 회원가입 기능을 통해 블록체인 서버에 아이디 패스워드를 보내게 됩니다. 로그인 기능은 블록체인 서버에서 인증을 받아서 하게 됩니다. 게임머니, 게임의 승패 모두 블록체인 서버에 기록되게 됩니다.
+
+Dapp의 구조는 아래와 같습니다.
+
++ 먼저 카드의 데이터를 받아오고 동기화 시키는 부분입니다.
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/1f5ae1d9-fd63-45ee-80fe-109782de3f8e)
+
++ rpc를 통해 동기화되는 목록들입니다.
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/66a6051b-447f-48cf-857b-227148d5e810)
+
++ 로그인, 회원가입이 메인 블록체인 서버와 통신하는 방법입니다.
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/1cd34171-392a-42ed-8e41-4acfb9e8cc31)
+
++ 메인 블록체인 서버와 지갑의 데이터를 통신하는 방법입니다.
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/c8245ebc-33e2-4180-bd87-e3b26c04f922)
+
++ 승패의 결과와 배팅금을 통해 지갑의 데이터를 변경하기 위해 메인 블록체인 서버와 통신하는 부분입니다.
+![image](https://github.com/stall-embedded/stall-embedded.github.io/assets/78913541/3f8a90e3-eb37-481a-aca7-0de746ff0c52)
+
+
 ## 4. Commercial Projects
 ### 4.1. Improved OCR for MSDS analysis
 기업과 협력하여 진행한 프로젝트이기에 소스코드를 오픈할 수 없습니다.
